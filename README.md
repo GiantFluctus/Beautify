@@ -1,6 +1,4 @@
-#     Beautify
-
-## Formateador de Código HTML, CSS y JS
+# Formateador de Código HTML, CSS y JS
 
 Este proyecto es una herramienta web que permite formatear código HTML, CSS y JavaScript. Proporciona una interfaz de usuario sencilla con pestañas para cada tipo de código y una barra de herramientas para realizar acciones comunes como formatear, seleccionar todo, copiar, guardar y limpiar el área de trabajo.
 
@@ -11,13 +9,16 @@ Este proyecto es una herramienta web que permite formatear código HTML, CSS y J
 - **Copiar Código:** Copia el código formateado al portapapeles.
 - **Guardar Código:** Guarda el código formateado como un archivo de texto.
 - **Limpiar Área de Trabajo:** Limpia el área de texto para ingresar nuevo código.
+- **Resaltado de Sintaxis:** Resalta la sintaxis del código usando Prism.js.
 
 ## Tecnologías Utilizadas
+
 - HTML
 - CSS
 - JavaScript
 - [js-beautify](https://cdnjs.com/libraries/js-beautify) (librería para formatear código)
-- [Font Awesome](https://cdnjs.com/libraries/font-awesome) (iconos)
+- [Prism.js](https://prismjs.com/) (librería para resaltar sintaxis)
+- [Font Awesome](https://cdnjs.cloudflare.com/libraries/font-awesome) (iconos)
 
 ## Cómo Empezar
 
@@ -30,13 +31,13 @@ Asegúrate de tener instalado Git en tu máquina. Puedes descargarlo desde [aqu�
 1. Clona el repositorio en tu máquina local:
 
    ```bash
-   git clone https://github.com/<tu-usuario>/<nombre-del-repositorio>.git
+   git clone https://github.com/GiantFluctus/Beautify.git
    ```
 
 2. Navega al directorio del proyecto:
 
    ```bash
-   cd <nombre-del-repositorio>
+   cd Beautify
    ```
 
 3. Abre el archivo `index.html` en tu navegador web:
