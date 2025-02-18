@@ -1,4 +1,6 @@
-# Formateador de Código HTML, CSS y JS
+#     Beautify
+
+## Formateador de Código HTML, CSS y JS
 
 Este proyecto es una herramienta web que permite formatear código HTML, CSS y JavaScript. Proporciona una interfaz de usuario sencilla con pestañas para cada tipo de código y una barra de herramientas para realizar acciones comunes como formatear, seleccionar todo, copiar, guardar y limpiar el área de trabajo.
 
