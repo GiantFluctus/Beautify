@@ -20,33 +20,40 @@ function formatCode() {
     const formattedCSS = css_beautify(inputCSS);
     const formattedJS = js_beautify(inputJS);
 
-    document.getElementById('outputHTML').innerText = formattedHTML;
-    document.getElementById('outputCSS').innerText = formattedCSS;
-    document.getElementById('outputJS').innerText = formattedJS;
+    document.getElementById('outputHTML').textContent = formattedHTML;
+    document.getElementById('outputCSS').textContent = formattedCSS;
+    document.getElementById('outputJS').textContent = formattedJS;
+
+    // Resaltar la sintaxis usando Prism.js
+    Prism.highlightAll();
 }
 
-function selectAllCode() {
-    const activeTab = document.querySelector('.tab-content.active textarea');
-    if (activeTab) {
-        activeTab.select();
-    }
-}
-
-function copyCode() {
-    const activeOutput = document.querySelector('.tab-content.active .output');
+function selectAllOutput() {
+    const activeOutput = document.querySelector('.tab-content.active .output code');
     if (activeOutput) {
-        navigator.clipboard.writeText(activeOutput.innerText)
-            .then(() => {
-                showMessage('Código copiado al portapapeles.');
-            })
-            .catch(err => {
-                showMessage('Error al copiar el código: ' + err);
-            });
+        const range = document.createRange();
+        range.selectNodeContents(activeOutput);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
     }
 }
 
-function saveCode() {
-    const activeOutput = document.querySelector('.tab-content.active .output');
+function copyOutput() {
+    const activeOutput = document.querySelector('.tab-content.active .output code');
+    if (activeOutput) {
+        const range = document.createRange();
+        range.selectNodeContents(activeOutput);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        document.execCommand('copy');
+        showMessage('Código copiado al portapapeles.');
+    }
+}
+
+function saveOutput() {
+    const activeOutput = document.querySelector('.tab-content.active .output code');
     if (activeOutput) {
         const blob = new Blob([activeOutput.innerText], { type: 'text/plain' });
         const link = document.createElement('a');
@@ -58,7 +65,7 @@ function saveCode() {
 
 function clearCode() {
     const activeTextarea = document.querySelector('.tab-content.active textarea');
-    const activeOutput = document.querySelector('.tab-content.active .output');
+    const activeOutput = document.querySelector('.tab-content.active .output code');
     if (activeTextarea && activeOutput) {
         activeTextarea.value = '';
         activeOutput.innerText = '';
@@ -68,8 +75,10 @@ function clearCode() {
 function showMessage(message) {
     const messageDiv = document.getElementById('message');
     messageDiv.innerText = message;
+    messageDiv.style.display = 'block';
     setTimeout(() => {
         messageDiv.innerText = '';
+        messageDiv.style.display = 'none';
     }, 3000);
 }
 
