@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formateador de HTML, CSS y JS</title>
+    <title>Beautify Code - HTML, CSS y JS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -15,13 +16,13 @@
             <button onclick="formatCode()" data-title="Formatear código">
                 <i class="fa-solid fa-file-code"></i>
             </button>
-            <button onclick="selectAllCode()" data-title="Seleccionar todo el código">
+            <button onclick="selectAllOutput()" data-title="Seleccionar todo el código">
                 <i class="fas fa-object-group"></i>
             </button>
-            <button onclick="copyCode()" data-title="Copiar código">
+            <button onclick="copyOutput()" data-title="Copiar código">
                 <i class="fa-solid fa-copy"></i>
             </button>
-            <button onclick="saveCode()" data-title="Guardar">
+            <button onclick="saveOutput()" data-title="Guardar">
                 <i class="fas fa-save"></i>
             </button>
             <button onclick="clearCode()" data-title="Limpiar área de trabajo">
@@ -44,15 +45,15 @@
         </ul>
         <div id="htmlTab" class="tab-content active">
             <textarea id="inputHTML" placeholder="Pega tu código HTML aquí..."></textarea>
-            <div class="output" id="outputHTML"></div>
+            <pre class="output"><code id="outputHTML" class="language-html"></code></pre>
         </div>
         <div id="cssTab" class="tab-content">
             <textarea id="inputCSS" placeholder="Pega tu código CSS aquí..."></textarea>
-            <div class="output" id="outputCSS"></div>
+            <pre class="output"><code id="outputCSS" class="language-css"></code></pre>
         </div>
         <div id="jsTab" class="tab-content">
             <textarea id="inputJS" placeholder="Pega tu código JS aquí..."></textarea>
-            <div class="output" id="outputJS"></div>
+            <pre class="output"><code id="outputJS" class="language-js"></code></pre>
         </div>
         <div id="message" class="message"></div>
     </div>
@@ -60,6 +61,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-css.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
     <script src="js/formatear_codigo.js"></script>
 </body>
 </html>
